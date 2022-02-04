@@ -6,10 +6,9 @@ var app = new Vue({
     created() {
         axios.get('http://localhost/php-snacks-b1/server/controller.php').
             then((result) => {
-                console.log(result.data.response);
+                this.cars = result.data.response;
             })
             .catch((err) => {
-                console.log(err);
         });
     }
 })
