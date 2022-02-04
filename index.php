@@ -16,6 +16,30 @@
 <body>
     <div id="app">
         <div class="container">
+            <div class="row mx-4">
+                <div class="col-12">
+                    <form action="index.php" method="GET">
+                        <label for="carburante">Carburante:</label>
+                        <select name="carburante" id="carburante" v-model="filter.carburante" @change="getCar">
+                            <option value="all">All</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Benzina">Benzina</option>
+                        </select>
+                        <label for="cambio">Cambio:</label>
+                        <select name="cambio" id="cambio" v-model="filter.cambio" @change="getCar">
+                            <option value="all">All</option>
+                            <option value="Manuale">Manuale</option>
+                            <option value="Automatico">Automatico</option>
+                        </select>
+                        <label for="n_porte">Numero Porte: </label>
+                        <select name="n_porte" id="n_porte" v-model="filter.n_porte" @change="getCar">
+                            <option value="all">All</option>
+                            <option value="5">5</option>
+                            <option value="2">2</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
             <div class="row row-cols-3 align-items-stretch">
                 <div class="col mb-2" v-for="car in cars" :key="car.id">
                     <div class="card">
@@ -27,6 +51,8 @@
                             <li class="list-group-item">Prezzo: {{car.prezzo}}</li>
                             <li class="list-group-item">Chilometri: {{ car.chilometraggio }}</li>
                             <li class="list-group-item">Carburante: {{ car.carburante }}</li>
+                            <li class="list-group-item">N. Porte: {{ car.n_porte }}</li>
+                            <li class="list-group-item">Cambio: {{ car.cambio }} Marce: {{ car.n_marce }}</li>
                         </ul>
                     </div>
                 </div>
